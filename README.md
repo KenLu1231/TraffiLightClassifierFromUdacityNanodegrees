@@ -6,5 +6,5 @@ This is the repo for the final project of the Udacity Intro to Self-Driving Cars
 
 Three main implementations for this project are :
 1. helpers.py loads in images which is provided by Udacity and their labels and places them in a list.
-2. test_functions.py test the 'one hot encode' and if any misclassified images are red but mistakenly classified as green.
+2. test_functions.py test the _one hot encode_ and if any misclassified images are red but mistakenly classified as green.
 3. Traffic_Light_Classifier.py(not complete)
