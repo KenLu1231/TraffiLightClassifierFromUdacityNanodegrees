@@ -5,16 +5,24 @@ import random
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg # for loading in images
+import os
 
 # Image data directories
 IMAGE_DIR_TRAINING = "traffic_light_images/training/"
 IMAGE_DIR_TEST = "traffic_light_images/test/"
 
-# Using the load_dataset function in helpers.py
+'''
+# (TEST CODE) Using the load_dataset function in helpers.py
 # Load training data
+print("Press any key to load training images.")
+os.system('pause')
 IMAGE_LIST = helpers.load_dataset(IMAGE_DIR_TRAINING)
 
-# The first image in IMAGE_LIST is displayed below (without information about shape or label)
+print("There are " + str(len(IMAGE_LIST)) + " training images.")
+'''
+
+'''
+# (TEST CODE)The first image in IMAGE_LIST is displayed below (without information about shape or label)
 selected_image = IMAGE_LIST[0][0]
 selected_label = IMAGE_LIST[0][1]
 
@@ -27,11 +35,12 @@ for im in IMAGE_LIST:
 print("Shape: " + str(selected_image.shape))
 print("Label : " + str(selected_label))
 plt.imshow(selected_image)
+'''
 
 # This function should take in an RGB image and return a new, standardized version
 def standardize_input(image):
     
-    ## TODO: Resize image and pre-process so that all "standard" images are the same size  
+    ## Resize image and pre-process so that all "standard" images are the same size  
     standard_im = np.copy(image)
     standard_im = cv2.resize(standard_im, (32, 32))
     
@@ -39,7 +48,7 @@ def standardize_input(image):
 
 def one_hot_encode(label):
     
-    ## TODO: Create a one-hot encoded label that works for all classes of traffic lights
+    ## Create a one-hot encoded label that works for all classes of traffic lights
     one_hot_encoded = [0, 0, 0]
     
     if label == "red":
@@ -51,12 +60,14 @@ def one_hot_encode(label):
     
     return one_hot_encoded
 
-# Importing the tests
+'''
+# (TEST CODE) Importing the tests
 import test_functions
 tests = test_functions.Tests()
 
 # Test for one_hot_encode function
 tests.test_one_hot(one_hot_encode)
+'''
 
 def standardize(image_list):
     
@@ -79,7 +90,8 @@ def standardize(image_list):
         
     return standard_list
 
-# Standardize all training images
+'''
+# (TEST CODE)# Standardize all training images
 STANDARDIZED_LIST = standardize(IMAGE_LIST)
 
 standard_image = STANDARDIZED_LIST[0][0]
@@ -88,8 +100,10 @@ standard_label = STANDARDIZED_LIST[0][1]
 print("Shape: " + str(standard_image.shape))
 print("Label : " + str(standard_label))
 plt.imshow(standard_image)
+'''
 
-# Convert and image to HSV colorspace
+'''
+# (TEST CODE) Convert and image to HSV colorspace
 # Visualize the individual color channels
 
 image_num = 0
@@ -117,6 +131,7 @@ ax3.set_title('S channel')
 ax3.imshow(s, cmap='gray')
 ax4.set_title('V channel')
 ax4.imshow(v, cmap='gray')
+'''
 
 def create_feature(rgb_image):
     
@@ -124,14 +139,18 @@ def create_feature(rgb_image):
     img_equa = cv2.equalizeHist(img_gray)
     img_rgbe = cv2.cvtColor(img_equa, cv2.COLOR_GRAY2RGB)
     
-    ## TODO: Convert image to HSV color space
+    ## Convert image to HSV color space
     hsv = cv2.cvtColor(img_rgbe, cv2.COLOR_RGB2HSV)
     
+    ## Crop image to filter noise
     croped_img = crop_image(hsv)
-    
+
+    ## Mask image to filter noise    
     masked_img = mask_image(croped_img)
     
-    ## TODO: Create and return a feature value and/or vector
+    ## Create and return a feature value and/or vector
+    # 1. Divide an image into three parts.
+    # 2. Sum up the vaule(brightness) of the part.
     part_root = 3
     part_nums = int(len(masked_img) / part_root)
     feature = []
@@ -168,8 +187,9 @@ def crop_image(image):
 # Analyze that image using your feature creation code and output a one-hot encoded label
 def estimate_label(rgb_image):
     
-    ## TODO: Extract feature(s) from the RGB image and use those features to
+    ## Extract feature(s) from the RGB image and use those features to
     ## classify the image and output a one-hot encoded label
+    # The index of the max value in the list is correspond to the color of the light.
     feature = create_feature(rgb_image)
         
     predicted_label = [0, 0, 0]
@@ -179,7 +199,11 @@ def estimate_label(rgb_image):
 
 # Using the load_dataset function in helpers.py
 # Load test data
+print("Press any key to load test images.")
+os.system('pause')
 TEST_IMAGE_LIST = helpers.load_dataset(IMAGE_DIR_TEST)
+
+print("There are " + str(len(TEST_IMAGE_LIST)) + " test images.")
 
 # Standardize the test data
 STANDARDIZED_TEST_LIST = standardize(TEST_IMAGE_LIST)
@@ -217,6 +241,8 @@ def get_misclassified_images(test_images):
 
 
 # Find all misclassified images in a given test set
+print("Press any key to execute classify functions.")
+os.system('pause')
 MISCLASSIFIED = get_misclassified_images(STANDARDIZED_TEST_LIST)
 
 # Accuracy calculations
@@ -228,6 +254,8 @@ print('Accuracy: ' + str(accuracy))
 print("Number of misclassified images = " + str(len(MISCLASSIFIED)) +' out of '+ str(total))
 
 # Visualize misclassified example(s)
+print("Press any key to display misclassified images.")
+os.system('pause')
 index = 0
 f, miss_list = plt.subplots(1, len(MISCLASSIFIED), figsize=(20,10))
 for ax in miss_list:
