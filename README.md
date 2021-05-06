@@ -11,7 +11,9 @@ Three main implementations for this project are :
 
 # Installation
 
-## Library information
-opencv-python-4.5.1.48
-matplotlib 3.3.4
-IPython 7.16.1
+  ## Usage
+
+  ## Library information
+  opencv-python-4.5.1.48
+  matplotlib 3.3.4
+  IPython 7.16.1
