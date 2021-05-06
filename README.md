@@ -11,9 +11,12 @@ Three main implementations for this project are :
 
 # Installation
 
-  ## Usage
+## Usage
+  
+1. Clone the project repository.
+2. Run **Traffic_Light_Classifier.py**.
 
-  ## Library information
-  opencv-python-4.5.1.48
-  matplotlib 3.3.4
-  IPython 7.16.1
+## Library information
+opencv-python-4.5.1.48
+matplotlib 3.3.4
+IPython 7.16.1
