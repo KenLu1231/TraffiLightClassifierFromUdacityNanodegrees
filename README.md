@@ -10,3 +10,8 @@ Three main implementations for this project are :
 3. **Traffic_Light_Classifier.py** executes the main function _get_misclassified_images_ to calculate the accuracy of the algorithm.
 
 # Installation
+
+## Library information
+opencv-python-4.5.1.48
+matplotlib 3.3.4
+IPython 7.16.1
