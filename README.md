@@ -14,6 +14,7 @@ Three main implementations for this project are :
 ## Usage
   
 1. Clone the project repository.
+
 `git clone https://github.com/KenLu1231/TrafficLightClassifierFromUdacityNanodegrees.git`
 
 2. Run **Traffic_Light_Classifier.py**.
