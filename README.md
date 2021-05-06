@@ -9,9 +9,7 @@ Three main implementations for this project are :
 2. **test_functions.py** tests the _one hot encode_ and if any misclassified images are red but mistakenly classified as green.
 3. **Traffic_Light_Classifier.py** executes the main function _get_misclassified_images_ to calculate the accuracy of the algorithm.
 
-# Installation
-
-## Usage
+# Usage
   
 1. Clone the project repository.
 
@@ -23,7 +21,7 @@ git clone https://github.com/KenLu1231/TrafficLightClassifierFromUdacityNanodegr
 
 2. Run **Traffic_Light_Classifier.py**.
 
-## Library information
+# Library information
 opencv 4.5.1
 matplotlib 3.3.4
 IPython 7.16.1
