@@ -22,6 +22,9 @@ git clone https://github.com/KenLu1231/TrafficLightClassifierFromUdacityNanodegr
 2. Run **Traffic_Light_Classifier.py**.
 
 # Library information
-opencv 4.5.1
-matplotlib 3.3.4
-IPython 7.16.1
+
+Library     | Version 
+------------|------------
+opencv      | 4.5.1
+matplotlib  | 3.3.4
+IPython     | 7.16.1
