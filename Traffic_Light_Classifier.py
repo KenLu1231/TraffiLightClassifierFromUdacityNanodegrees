@@ -264,6 +264,8 @@ for ax in miss_list:
     ax.imshow(MISCLASSIFIED[index][0])
     index = index + 1
 
+print("Press any key to exit.")
+os.system('pause')
 
 # Importing the tests
 import test_functions
