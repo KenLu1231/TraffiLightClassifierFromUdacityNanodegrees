@@ -264,12 +264,12 @@ for ax in miss_list:
     ax.imshow(MISCLASSIFIED[index][0])
     index = index + 1
 
-print("Press any key to exit.")
-os.system('pause')
-
 # Importing the tests
 import test_functions
 tests = test_functions.Tests()
+
+print("Press any key to see if there was any red light image misclassified as green light image.")
+os.system('pause')
 
 if(len(MISCLASSIFIED) > 0):
     # Test code for one_hot_encode function
@@ -277,3 +277,5 @@ if(len(MISCLASSIFIED) > 0):
 else:
     print("MISCLASSIFIED may not have been populated with images.")
 
+print("Press any key to exit.")
+os.system('pause')
