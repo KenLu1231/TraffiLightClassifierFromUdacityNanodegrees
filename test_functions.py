@@ -10,11 +10,11 @@ def printmd(string):
 
 # Print a test failed message, given an error
 def print_fail():
-    printmd('**<span style="color: red;">TEST FAILED</span>**')    
+    print("TEST FAILED")    
     
 # Print a test passed message
 def print_pass():
-    printmd('**<span style="color: green;">TEST PASSED</span>**')
+    print("TEST PASSED")
     
 
 
@@ -64,3 +64,7 @@ class Tests(unittest.TestCase):
         
         # No red lights are classified as green; test passed
         print_pass()
+
+
+
+
